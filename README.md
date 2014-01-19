@@ -23,12 +23,10 @@ We are learning as we go and do not yet clear asks to make of others. However, y
 - Fork, hack, and make pull requests (PLEASE keep these small for now and related to our project goals).
 
 ## Why this project?
-The current [statedecoded-vagrant](https://github.com/statedecoded/statedecoded-vagrant) is helpful in setting up the environment on vagrant, but is not yet a one-click install. There are also has some gotchas we found in using it.
-
 At GitMachines we are interested in one-click installs to get accreditation-ready builds in order to encourage adoption.
 
 ## Status
-### What our one-click build does..
+### What our one-click build does.
 
 1. Uses CentOS, which is very very close to RedHat Enterprise
 2. Configures CentOS firewall for Apache and Tomcat
