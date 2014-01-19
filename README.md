@@ -86,52 +86,5 @@ oscap xccdf eval --profile stig-rhel6-server \
 
 ```
 
-
-### (Recommended) Install Virginia State Laws
-Your statedecoded will look a bit lame without any laws. We've pre-configured everything to use Virginia's laws as a sample.
-
-To finish the import of Virginia's Laws, open web browser and navigate to `http://localhost:8080/admin/` and follow instructions to import.
-
-### (Optional) Install Laws for a Different State
-To use laws of a different state, follow the steps below to modify files and re-import laws to use a different state laws.
-
-1. Adjust config.inc.php settings. See http://statedecoded.github.io/documentation/config.html
-2. Rename `statedecoded/includes/class.Virginia.inc` to new state name, example `statedecoded/includes/class.Indiana.inc`.
-3. Prepare the laws to the StateDecoded XML format. See http://statedecoded.github.io/documentation/
-4. Replace the Virginia XML law files with new state XML formatted laws into `statedecoded/htdocs/admin/import-data/code/`. 
-5. Empty the database. (Better instructions to come.)
-6. Re-import the laws from the admin page at `http://localhost:8080/admin/`.
-
-### (Optional) Give your GitMachine a domain name of statedecoded.dev
-Your GitMachine and Statedecoded website is configured to be accessed by the domain `statedecoded.dev`. To do this, add the following line to the bottome of your host computer's known hosts file (ex: `/etc/hosts` on Linux and Macs).
-
-```
-192.168.56.101  statedecoded.dev
-```
-
-Note: We do not automate changing your host computer's known hosts file because it is highly risky to do automatically.
-
-## Security
-
-This is box is being tested for the following security
-
-- http://repos.fedorapeople.org/repos/scap-security-guide/epel-6-scap-security-guide.repo
-- http://repos.fedorapeople.org/repos/gitopenscap/openscap/epel-6-openscap.repo
-
-## Why CentOS instead of Ubuntu?
-- Bit compatibility with RedHat Enterprise Linux (RHEL) since RHEL is popular with is common/popular among governments and businesses.
-- We want cities to adopt Statedecoded and RHEL has government acceptance b/c it is built on SELinux (Security Enhanced Linux) 
-- SELinux has elements, like default firewall (/etc/sysconfig/iptables) that Ubuntu does not
-- OpenSCAP (Security Content Automation Protocols) and base line control configurations already exist for CentOS but do not yet for Ubuntu (from what we can tell). We need SCAP to produce the scans and audit reports to make Statedecoded accreditation-ready. 
-
-## Why from scratch?
-Why not just start from what [statedecoded-vagrant](https://github.com/statedecoded/statedecoded-vagrant) has?
-- To learn.
-- To deal easier with CentOS's built-in firewall.
-- To automate OpenSCAP scanning and reporting.
-- To see if we can streamline and further automate the install.
-- To rethink how documentation can be managed and even driven from code.
-- Because some installations will require the database to be run on a different server from the application and to have other redundancies. We want to understand how to create a path for varying configurations.
-
 ## ToDo
 See the issues.
